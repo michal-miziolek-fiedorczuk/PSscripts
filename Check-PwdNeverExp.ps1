@@ -1,6 +1,6 @@
 #$input = ".\users1.csv"
-$input = Read-Host "File Path"
+$inputFilePath = Read-Host "Type file Path"
 
-Import-Csv -Path $input | ForEach-Object {
+Import-Csv -Path $inputFilePath | ForEach-Object {
 Get-ADUser $_.name -Properties * | Select-Object Name,PasswordNeverExpires,LockedOut,@{n='pwdLastSet';e={[DateTime]::FromFileTime($_.pwdLastSet)}}
 }

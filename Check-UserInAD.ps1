@@ -1,4 +1,4 @@
-$inputfile = ".\users.csv"
+$inputfile = Read-Host "Type file path"
 
 Import-Csv -Path $inputfile | ForEach-Object {
 Try {
