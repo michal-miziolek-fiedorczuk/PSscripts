@@ -1,3 +1,4 @@
+
 Get-Content .\computers.txt | ForEach-Object {
     $pc = $_
     Try 
