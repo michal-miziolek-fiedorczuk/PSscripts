@@ -7,12 +7,12 @@ function deleteDnsRecord {
         Try {
                 Remove-DnsServerResourceRecord -computername $dnsServer -ZoneName $zoneName -RRType "A" -Name $_.name -RecordData $_.IP -Force
                 Write-Host -ForegroundColor Green "Record" $_.name "has been deleted succesfully" 
-         } 
+            } 
          Catch {
-                    Write-Host -ForegroundColor Red "Record" $_.name "hasn't been deleted"
-                    Write-Host $_
-               }
-    }
+                Write-Host -ForegroundColor Red "Record" $_.name "hasn't been deleted"
+                Write-Host $_
+            }
+        }
     }
     
     function deleteComputer {
@@ -25,6 +25,6 @@ function deleteDnsRecord {
             } 
             Catch {
                     Write-Host -ForegroundColor Red $_.name "doesn't exist already"
-                  }
+            }
         }
     }
